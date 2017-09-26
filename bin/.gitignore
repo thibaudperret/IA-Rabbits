@@ -2,3 +2,7 @@
 /RabbitsGrassSimulationAgent.class
 /RabbitsGrassSimulationModel.class
 /RabbitsGrassSimulationSpace.class
+/RabbitsGrassSimulationModel$1CarryDropStep.class
+/RabbitsGrassSimulationModel$1RabbitsGrassSimulationStep.class
+/RabbitsGrassSimulationModel$NumberOfRabbits.class
+/RabbitsGrassSimulationModel$1RabbitGrassUpdateNbRabbits.class
