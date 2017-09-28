@@ -53,7 +53,7 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
         }
         
         public double getSValue() {
-            return (double) rgSpace.nbRabbits();
+            return (double) rgSpace.nbGrass();
         }
     }
 
@@ -139,7 +139,7 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
             }
         }
         
-        schedule.scheduleActionBeginning(10, new RabbitGrassUpdateNbRabbits());
+        schedule.scheduleActionBeginning(0, new RabbitGrassUpdateNbRabbits());
     }
 
     public void buildDisplay() {

@@ -10,14 +10,12 @@ public class RabbitsGrassSimulationSpace {
     private Object2DGrid grassSpace;
     private Object2DGrid agentSpace;
     
-    private int nbRabbits;
     private int nbGrass;
 
     public RabbitsGrassSimulationSpace(int size) {
         grassSpace = new Object2DGrid(size, size);
         agentSpace = new Object2DGrid(size, size);
         
-        nbRabbits = 0;
         nbGrass = 0;
 
         for (int i = 0; i < size; i++) {
@@ -82,17 +80,11 @@ public class RabbitsGrassSimulationSpace {
                 agent.setXY(x, y);
                 agent.setRgSpace(this);
                 retVal = true;
-                
-                nbRabbits++;
             }
             count++;
         }
 
         return retVal;
-    }
-    
-    public int nbRabbits() {
-        return nbRabbits;
     }
     
     public int nbGrass() {
@@ -101,8 +93,6 @@ public class RabbitsGrassSimulationSpace {
 
     public void removeAgentAt(int x, int y) {
         agentSpace.putObjectAt(x, y, null);
-        
-        nbRabbits--;
     }
 
     public int eatGrassAt(int x, int y) {
