@@ -73,7 +73,7 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
         }
         
         public double getSValue() {
-            return (double) ((double)rgSpace.nbGrass() / agentList.size());
+            return agentList.size() != 0 ? (double) ((double)rgSpace.nbGrass() / agentList.size()) : 0;
         }
     }
 
