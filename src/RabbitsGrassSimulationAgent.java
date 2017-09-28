@@ -31,10 +31,16 @@ public class RabbitsGrassSimulationAgent implements Drawable {
     private void setVxVy() {
         vX = 0;
         vY = 0;
-        while ((vX == 0) && (vY == 0)) {
-            vX = (int) Math.floor(Math.random() * 3) - 1;
-            vY = (int) Math.floor(Math.random() * 3) - 1;
+        if(Math.random() >= 0.5) {
+        	while(vX == 0) {
+        		vX = (int) Math.floor(Math.random() * 3) - 1;
+        	} 
+        } else {
+        	while(vY == 0) {
+        		vY = (int) Math.floor(Math.random() * 3) - 1;
+        	}
         }
+               
     }
 
     public void setRgSpace(RabbitsGrassSimulationSpace rgs) {

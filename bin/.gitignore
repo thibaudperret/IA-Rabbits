@@ -1,8 +1,6 @@
-/MainRabbit.class
-/RabbitsGrassSimulationAgent.class
-/RabbitsGrassSimulationModel.class
-/RabbitsGrassSimulationSpace.class
-/RabbitsGrassSimulationModel$1CarryDropStep.class
-/RabbitsGrassSimulationModel$1RabbitsGrassSimulationStep.class
-/RabbitsGrassSimulationModel$NumberOfRabbits.class
+/RabbitsGrassSimulationModel$NumberOfGrass.class
+/RabbitsGrassSimulationModel$RatioRG.class
+/RabbitsGrassSimulationModel$1RabbitGrassUpdateNbGrass.class
+/RabbitsGrassSimulationModel$1RabbitGrassUpdateRatioRG.class
 /RabbitsGrassSimulationModel$1RabbitGrassUpdateNbRabbits.class
+/RabbitsGrassSimulationModel$1RabbitsGrassSimulationStep.class

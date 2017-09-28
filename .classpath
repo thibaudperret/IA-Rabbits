@@ -2,13 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/rabbits/rabbits/lib/repast.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/intelagent_jars/colt.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/intelagent_jars/commons-math-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/intelagent_jars/jdom.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/intelagent_jars/jsolver.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/intelagent_jars/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/intelagent_jars/logist.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Thibaud/Downloads/intelagent_jars/plot.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/colt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/commons-math-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/jdom.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/jsolver.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/logist.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/plot.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Repast 3/Repast J/repast.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

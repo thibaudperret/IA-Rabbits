@@ -26,11 +26,11 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
 
     private static final int WORLDSIZE       = 20;
     private static final int NUMAGENTS       = 10;
-    private static final int NUMGRASS        = 20;
+    private static final int NUMGRASS        = 50;
     private static final int BIRTHTHRESHOLD  = 20;
     private static final int INITENERGY      = 10;
     private static final int BIRTHCOST       = 10;
-    private static final int GRASSGROWTHRATE = 100;
+    private static final int GRASSGROWTHRATE = 30;
 
     private int worldSize       = WORLDSIZE;
     private int numAgents       = NUMAGENTS;
@@ -45,7 +45,7 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
 
     private DisplaySurface displaySurf;
     
-    private OpenSequenceGraph nbOfRabbits;
+    private OpenSequenceGraph generalGraph;
     
     class NumberOfRabbits implements DataSource, Sequence {
         public Object execute() {
@@ -53,7 +53,27 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
         }
         
         public double getSValue() {
+            return (double) agentList.size();
+        }
+    }
+    
+    class NumberOfGrass implements DataSource, Sequence {
+        public Object execute() {
+            return new Double(getSValue());
+        }
+        
+        public double getSValue() {
             return (double) rgSpace.nbGrass();
+        }
+    }
+    
+    class RatioRG implements DataSource, Sequence {
+        public Object execute() {
+            return new Double(getSValue());
+        }
+        
+        public double getSValue() {
+            return (double) ((double)rgSpace.nbGrass() / agentList.size());
         }
     }
 
@@ -72,17 +92,19 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
         }
         displaySurf = null;
         
-        if (nbOfRabbits != null) {
-            nbOfRabbits.dispose();
+        if (generalGraph != null) {
+            generalGraph.dispose();
         }
         
-        nbOfRabbits = null;
+       
+        
+        generalGraph = null;
 
         displaySurf = new DisplaySurface(this, "Rabbits Grass Model Window 1");
-        nbOfRabbits = new OpenSequenceGraph("Number of rabbits", this);
+        generalGraph = new OpenSequenceGraph("General Graph", this);
 
         registerDisplaySurface("Rabbits Grass Model Window 1", displaySurf);
-        this.registerMediaProducer("Plot", nbOfRabbits);
+        this.registerMediaProducer("Plot", generalGraph);
     }
 
     public void begin() {
@@ -91,7 +113,7 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
         buildDisplay();
 
         displaySurf.display();
-        nbOfRabbits.display();
+        generalGraph.display();
     }
 
     public void buildModel() {
@@ -135,11 +157,15 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
         
         class RabbitGrassUpdateNbRabbits extends BasicAction {
             public void execute() {
-                nbOfRabbits.step();
+                generalGraph.step();
             }
         }
         
-        schedule.scheduleActionBeginning(0, new RabbitGrassUpdateNbRabbits());
+
+        schedule.scheduleActionBeginning(10, new RabbitGrassUpdateNbRabbits());
+        
+  
+        
     }
 
     public void buildDisplay() {
@@ -151,7 +177,7 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
             map.mapColor(i, new Color(0, (int) (i * 8 + 127), 0));
         }
         
-        map.mapColor(0, Color.BLACK);
+        map.mapColor(0, new Color(160, 82, 45));
 
         Value2DDisplay displayGrass = new Value2DDisplay(rgSpace.getCurrentGrassSpace(), map);
 
@@ -161,7 +187,9 @@ public class RabbitsGrassSimulationModel extends SimModelImpl {
         displaySurf.addDisplayable(displayGrass, "Grass");
         displaySurf.addDisplayable(displayAgents, "Agents");
 
-        nbOfRabbits.addSequence("Number of rabbits", new NumberOfRabbits());
+        generalGraph.addSequence("Number of rabbits", new NumberOfRabbits());
+        generalGraph.addSequence("Number of Grass", new NumberOfGrass());
+        generalGraph.addSequence("Ratio Grass / Rabbits", new RatioRG());
     }
 
     private void reapDeadAgents() {
